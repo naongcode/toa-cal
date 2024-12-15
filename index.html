@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쿠모탑 잠재력 정상화</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>쿠키런 모험의탑</h1>
+        <h2>최적 잠재 계산기</h2>
+    </header>
+
+    <main class="container">
+        <!-- 입력칸 -->
+        <section class="input-section">
+            <h3>입력하세요~</h3>
+            <form id="calculator-form">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>효과</th>
+                            <th>속공</th>
+                            <th>공증</th>
+                            <th>속피</th>
+                            <th>치확</th>
+                            <th>치피</th>
+                            <th>방관</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><label for="attribute1">기본수치</label></td>
+                            <td><input type="number" id="attribute1" name="attribute1" value="0" placeholder="예:663" required></td>
+                            <td><input type="number" id="attack1" name="attack1" value="0" placeholder="예: 0"></td>
+                            <td><input type="number" id="damage1" name="damage1" value="0" placeholder="예: 0"></td>
+                            <td><input type="number" id="crit1" name="crit1" value="15" placeholder="예: 37.5"></td>
+                            <td><input type="number" id="crit-damage1" name="crit-damage1" value="150" placeholder="예: 150"></td>
+                            <td><input type="number" id="penetration1" name="penetration1" value="0" placeholder="예: 0"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="attribute2">장비(무기)</label></td>
+                            <td><input type="number" id="attribute2" name="attribute2" value="0" placeholder="예: 600"></td>
+                            <td><input type="number" id="attack2" name="attack2" value="52" placeholder="예: 120"></td>
+                            <td><input type="number" id="damage2" name="damage2" value="0" placeholder="예: 60"></td>
+                            <td><input type="number" id="crit2" name="crit2" value="0" placeholder="예: 35"></td>
+                            <td><input type="number" id="crit-damage2" name="crit-damage2" value="0" placeholder="예: 160"></td>
+                            <td><input type="number" id="penetration2" name="penetration2" value="0" placeholder="예: 0"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="attribute3">장비(모자)</label></td>
+                            <td><input type="number" id="attribute3" name="attribute3" value="0" placeholder="예: 600"></td>
+                            <td><input type="number" id="attack3" name="attack3" value="0" placeholder="예: 120"></td>
+                            <td><input type="number" id="damage3" name="damage3" value="0" placeholder="예: 60"></td>
+                            <td><input type="number" id="crit3" name="crit3" value="0" placeholder="예: 35"></td>
+                            <td><input type="number" id="crit-damage3" name="crit-damage3" value="0" placeholder="예: 160"></td>
+                            <td><input type="number" id="penetration3" name="penetration3" value="0" placeholder="예: 0"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="attribute4">장비(상의)</label></td>
+                            <td><input type="number" id="attribute4" name="attribute4" value="0" placeholder="예: 600"></td>
+                            <td><input type="number" id="attack4" name="attack4" value="0" placeholder="예: 120"></td>
+                            <td><input type="number" id="damage4" name="damage4" value="0" placeholder="예: 60"></td>
+                            <td><input type="number" id="crit4" name="crit4" value="0" placeholder="예: 35"></td>
+                            <td><input type="number" id="crit-damage4" name="crit-damage4" value="0" placeholder="예: 160"></td>
+                            <td><input type="number" id="penetration4" name="penetration4" value="0" placeholder="예: 0"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="attribute5">장비(하의)</label></td>
+                            <td><input type="number" id="attribute5" name="attribute5" value="0" placeholder="예: 600"></td>
+                            <td><input type="number" id="attack5" name="attack5" value="0" placeholder="예: 120"></td>
+                            <td><input type="number" id="damage5" name="damage5" value="0" placeholder="예: 60"></td>
+                            <td><input type="number" id="crit5" name="crit5" value="0" placeholder="예: 35"></td>
+                            <td><input type="number" id="crit-damage5" name="crit-damage5" value="0" placeholder="예: 160"></td>
+                            <td><input type="number" id="penetration5" name="penetration5" value="0" placeholder="예: 0"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="attribute6">장비(세트)</label></td>
+                            <td><input type="number" id="attribute6" name="attribute6" value="0" placeholder="예: 600"></td>
+                            <td><input type="number" id="attack6" name="attack6" value="0" placeholder="예: 120"></td>
+                            <td><input type="number" id="damage6" name="damage6" value="0" placeholder="예: 60"></td>
+                            <td><input type="number" id="crit6" name="crit6" value="0" placeholder="예: 35"></td>
+                            <td><input type="number" id="crit-damage6" name="crit-damage6" value="0" placeholder="예: 160"></td>
+                            <td><input type="number" id="penetration6" name="penetration6" value="0" placeholder="예: 0"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="attribute7">속성잠재</label></td>
+                            <td><input type="number" id="attribute7" name="attribute7" value="20" placeholder="예: 600"></td>
+                            <td><input type="number" id="attack7" name="attack7" value="0" placeholder="예: 120"></td>
+                            <td><input type="number" id="damage7" name="damage7" value="30" placeholder="예: 60"></td>
+                            <td><input type="number" id="crit7" name="crit7" value="0" placeholder="예: 35"></td>
+                            <td><input type="number" id="crit-damage7" name="crit-damage7" value="0" placeholder="예: 160"></td>
+                            <td><input type="number" id="penetration7" name="penetration7" value="0" placeholder="예: 0"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="attribute8">아티펙트</label></td>
+                            <td><input type="number" id="attribute8" name="attribute8" value="0" placeholder="예: 600"></td>
+                            <td><input type="number" id="attack8" name="attack8" value="0" placeholder="예: 120"></td>
+                            <td><input type="number" id="damage8" name="damage8" value="0" placeholder="예: 60"></td>
+                            <td><input type="number" id="crit8" name="crit8" value="0" placeholder="예: 35"></td>
+                            <td><input type="number" id="crit-damage8" name="crit-damage8" value="0" placeholder="예: 160"></td>
+                            <td><input type="number" id="penetration8" name="penetration8" value="0" placeholder="예: 0"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="attribute9">서포터효과</label></td>
+                            <td><input type="number" id="attribute9" name="attribute9" value="0" placeholder="예: 600"></td>
+                            <td><input type="number" id="attack9" name="attack9" value="0" placeholder="예: 120"></td>
+                            <td><input type="number" id="damage9" name="damage9" value="0" placeholder="예: 60"></td>
+                            <td><input type="number" id="crit9" name="crit9" value="0" placeholder="예: 35"></td>
+                            <td><input type="number" id="crit-damage9" name="crit-damage9" value="0" placeholder="예: 160"></td>
+                            <td><input type="number" id="penetration9" name="penetration9" value="0" placeholder="예: 0"></td>
+                        </tr>
+                    </tbody>                    
+                </table>    
+            </form>
+        </section>
+        <!-- 보스 방어력, 보스 내성 입력 필드 -->
+        <section id="boss-defenses">
+            <div class="boss-inputs">
+                <label for="boss-defense">보스 방어력:</label>
+                <input type="number" id="boss-defense" name="boss-defense" value="1000" placeholder="예: 1000">
+                <br>
+                <label for="boss-resistance">보스 내성:</label>
+                <input type="number" id="boss-resistance" name="boss-resistance" value="20" placeholder="예: 20">
+            </div>
+        </section>
+        
+        <!-- 기본제공 정보 -->
+        <section class="character-stats">
+            <h4>돌파옵션은 기본수치에 더해주기</h4>
+            <p> 소다</p><p>705</p><p>공증30%</p>
+            <p> 호밀</p><p>717</p><p>공증30%</p>
+            <p> 다크</p><p>735</p><p>치피</p>
+            <p> 칠리</p><p>699</p><p>치피</p>
+            <p> 레제</p><p>692</p><p>공증30%</p>
+            <p> 콜랍</p><p>724</p><p>공증30%</p>
+            <p> 할라</p><p>702</p><p>공증30%</p>
+            <p> 바질</p><p>652</p><p>치확22.5%</p>
+            <p> 슈글</p><p>663</p><p>치확22.5%</p>
+
+        </section>
+
+    </main>
+    <section class="calculate-section">
+        <h2>적용 수치</h2>
+        <table class="calculation-table">
+            <thead>
+                <tr>
+                    <th>속공</th>
+                    <th>공증</th>
+                    <th>속피</th>
+                    <th>치확</th>
+                    <th>치피</th>
+                    <th>방관</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="number" id="attack-elem"></td>
+                    <td><input type="number" id="attack-plus"></td>
+                    <td><input type="number" id="elem-plus"></td>
+                    <td><input type="number" id="crit-rate"></td>
+                    <td><input type="number" id="crit-damage"></td>
+                    <td><input type="number" id="penetration"></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    
+    <section class="result-section">
+        <button onclick="calculateResults()">계산하기</button>
+        <h2>결과</h2>
+        <div id="result-list">
+            
+        </div>
+    </section>
+
+    <!-- 광고 코드 삽입 -->
+    <div class="adsense-ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9591677970805979"
+             data-ad-slot="XXXXXXX"
+             data-ad-format="auto"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <noscript>
+            <p>광고를 보기 위해 자바스크립트를 활성화하십시오.</p>
+        </noscript>
+    </div>
+
+    <footer>
+        <p>© 2024 최적 잠재력 계산기</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
