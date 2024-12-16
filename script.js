@@ -123,9 +123,192 @@ function calculateResults() {
         resultDiv.classList.add("result-item");
     
         resultDiv.innerHTML = `
-        <strong>Top ${idx + 1}</strong> | <strong>값:</strong> ${Math.floor(result.value)} | <strong>잠재:</strong> 속공(${result.combination[0]}), 공증(${result.combination[1]}), 속피(${result.combination[2]}), 치확(${result.combination[3]}), 치피(${result.combination[4]}), 방관(${result.combination[5]})`;
+        <strong>Top ${idx + 1}</strong>
+        <br>
+        <strong>값:</strong> ${Math.floor(result.value)} | <strong>잠재:</strong> 속공(${result.combination[0]})공증(${result.combination[1]})속피(${result.combination[2]})치확(${result.combination[3]})치피(${result.combination[4]})방관(${result.combination[5]})`;
     
         resultList.appendChild(resultDiv);
     });
 }
 
+// 캐릭터 카드 클릭 시 해당 값을 입력 필드로 전달
+document.querySelectorAll('.character-card').forEach(card => {
+    card.addEventListener('click', function () {
+        // 기존 선택된 카드의 스타일 초기화
+        document.querySelectorAll('.character-card, .equipment-card, .artifact-card, .supporter-card').forEach(c => c.classList.remove('selected'));
+        this.classList.toggle('selected'); // 현재 클릭된 카드 강조
+
+        // 데이터 속성에서 값 가져오기
+        const atk = this.dataset.atk || 0;
+        const atk_p = this.dataset.atk_p || 0;
+        const atk_e = this.dataset.atk_e || 0;
+        const crit_p = this.dataset.crit_p || 0;
+        const crit_d = this.dataset.crit_d || 0;
+        const pene = this.dataset.pene || 0;
+
+        // 해당 값을 입력 필드에 전달
+        document.getElementById("attribute1").value = atk;
+        document.getElementById("attack1").value = atk_p;
+        document.getElementById("damage1").value = atk_e;
+        document.getElementById("crit1").value = crit_p;
+        document.getElementById("crit-damage1").value = crit_d;
+        document.getElementById("penetration1").value = pene;
+
+    });
+});
+
+// 장비 선택
+document.querySelectorAll('.equipment-card').forEach(card => {
+    card.addEventListener('click', function() {
+        document.querySelectorAll('.character-card, .equipment-card, .artifact-card, .supporter-card').forEach(c => c.classList.remove('selected'));
+        this.classList.toggle('selected');
+
+        const atk = this.dataset.atk || 0;
+        const atk_p = this.dataset.atk_p || 0;
+        const atk_e = this.dataset.atk_e || 0;
+        const crit_p = this.dataset.crit_p || 0;
+        const crit_d = this.dataset.crit_d || 0;
+        const pene = this.dataset.pene || 0;
+
+        // 6번 슬롯에 값 자동 적용
+        applyValues(atk, atk_p, atk_e, crit_p, crit_d, pene, 6);
+    });
+});
+
+// 아티펙트 선택
+document.querySelectorAll('.artifact-card').forEach(card => {
+    card.addEventListener('click', function() {
+        document.querySelectorAll('.character-card, .equipment-card, .artifact-card, .supporter-card').forEach(c => c.classList.remove('selected'));
+        this.classList.toggle('selected');
+
+        const atk = this.dataset.atk || 0;
+        const atk_p = this.dataset.atk_p || 0;
+        const atk_e = this.dataset.atk_e || 0;
+        const crit_p = this.dataset.crit_p || 0;
+        const crit_d = this.dataset.crit_d || 0;
+        const pene = this.dataset.pene || 0;
+
+        // 8번 슬롯에 값 자동 적용
+        applyValues(atk, atk_p, atk_e, crit_p, crit_d, pene, 8);
+    });
+});
+
+// 서포터 카드 클릭 시
+document.querySelectorAll('.supporter-card').forEach(card => {
+    card.addEventListener('click', function() {
+        // 선택된 서포터 카드에 `selected` 클래스 추가 및 제거
+        this.classList.toggle('selected');
+
+        // 서포터 값 누적 및 해제
+        const atk = parseInt(this.dataset.atk) || 0;
+        const atk_p = parseInt(this.dataset.atk_p) || 0;
+        const atk_e = parseInt(this.dataset.atk_e) || 0;
+        const crit_p = parseInt(this.dataset.crit_p) || 0;
+        const crit_d = parseInt(this.dataset.crit_d) || 0;
+        const pene = parseInt(this.dataset.pene) || 0;
+
+        // 선택/해제에 따른 수치 누적/제거
+        if (this.classList.contains('selected')) {
+            applySupporterValues(atk, atk_p, atk_e, crit_p, crit_d, pene, 9);
+        } else {
+            applySupporterValues(-atk, -atk_p, -atk_e, -crit_p, -crit_d, -pene, 9);
+        }
+    });
+});
+
+// 서포터 값 누적 및 제거 함수
+function applySupporterValues(atk, atk_p, atk_e, crit_p, crit_d, pene, slot) {
+    let currentAtk = parseInt(document.getElementById(`attribute${slot}`).value) || 0;
+    let currentAtk_p = parseInt(document.getElementById(`attack${slot}`).value) || 0;
+    let currentAtk_e = parseInt(document.getElementById(`damage${slot}`).value) || 0;
+    let currentCrit_p = parseInt(document.getElementById(`crit${slot}`).value) || 0;
+    let currentCrit_d = parseInt(document.getElementById(`crit-damage${slot}`).value) || 0;
+    let currentPene = parseInt(document.getElementById(`penetration${slot}`).value) || 0;
+
+    // 누적 값 적용
+    document.getElementById(`attribute${slot}`).value = currentAtk + atk;
+    document.getElementById(`attack${slot}`).value = currentAtk_p + atk_p;
+    document.getElementById(`damage${slot}`).value = currentAtk_e + atk_e;
+    document.getElementById(`crit${slot}`).value = currentCrit_p + crit_p;
+    document.getElementById(`crit-damage${slot}`).value = currentCrit_d + crit_d;
+    document.getElementById(`penetration${slot}`).value = currentPene + pene;
+}
+
+// 각 슬롯에 값 자동 적용
+function applyValues(atk, atk_p, atk_e, crit_p, crit_d, pene, slot) {
+    document.getElementById(`attribute${slot}`).value = atk;
+    document.getElementById(`attack${slot}`).value = atk_p;
+    document.getElementById(`damage${slot}`).value = atk_e;
+    document.getElementById(`crit${slot}`).value = crit_p;
+    document.getElementById(`crit-damage${slot}`).value = crit_d;
+    document.getElementById(`penetration${slot}`).value = pene;
+}
+
+// 직접입력 
+function applyCustomInput() {
+    // 입력 값 가져오기
+    const atkValue = document.getElementById("custom-atk").value || 0; // ATK 값
+    const optionType = document.getElementById("custom-option").value; // 선택된 옵션
+    const optionValue = document.getElementById("custom-value").value || 0; // 옵션 값
+
+    // 기본 필드에 입력 값 적용
+    document.getElementById("attribute1").value = atkValue;
+
+    // 옵션 타입에 따라 필드 업데이트
+    switch (optionType) {
+        case "crit_p":
+            document.getElementById("crit1").value = optionValue;
+            break;
+        case "crit_d":
+            document.getElementById("crit-damage1").value = optionValue;
+            break;
+        case "atk_p":
+            document.getElementById("attack1").value = optionValue;
+            break;
+        case "atk_e":
+            document.getElementById("damage1").value = optionValue;
+            break;
+        case "pene":
+            document.getElementById("penetration1").value = optionValue;
+            break;
+        default:
+            console.error("Invalid option type");
+    }
+}
+
+//직접입력-장비
+function applyCustomEquipmentInput() {
+    // 각 입력 필드에서 값을 가져옵니다.
+    const atk = parseInt(document.getElementById("custom-equipment-atk").value) || 0;
+    const atk_p = parseInt(document.getElementById("custom-equipment-atk_p").value) || 0;
+    const atk_e = parseInt(document.getElementById("custom-equipment-atk_e").value) || 0;
+    const crit_p = parseInt(document.getElementById("custom-equipment-crit_p").value) || 0;
+    const crit_d = parseInt(document.getElementById("custom-equipment-crit_d").value) || 0;
+    const pene = parseInt(document.getElementById("custom-equipment-pene").value) || 0;
+
+    applyValues(atk, atk_p, atk_e, crit_p, crit_d, pene, 6);
+}
+
+function applyCustomArtifactInput() {
+    // 각 입력 필드에서 값을 가져옵니다.
+    const atk = parseInt(document.getElementById("custom-artifact-atk").value) || 0;
+    const atk_p = parseInt(document.getElementById("custom-artifact-atk_p").value) || 0;
+    const atk_e = parseInt(document.getElementById("custom-artifact-atk_e").value) || 0;
+    const crit_p = parseInt(document.getElementById("custom-artifact-crit_p").value) || 0;
+    const crit_d = parseInt(document.getElementById("custom-artifact-crit_d").value) || 0;
+    const pene = parseInt(document.getElementById("custom-artifact-pene").value) || 0;
+
+    applyValues(atk, atk_p, atk_e, crit_p, crit_d, pene, 8);
+}
+
+function applyCustomSupporterInput() {
+    // 각 입력 필드에서 값을 가져옵니다.
+    const atk = parseInt(document.getElementById("custom-supporter-atk").value) || 0;
+    const atk_p = parseInt(document.getElementById("custom-supporter-atk_p").value) || 0;
+    const atk_e = parseInt(document.getElementById("custom-supporter-atk_e").value) || 0;
+    const crit_p = parseInt(document.getElementById("custom-supporter-crit_p").value) || 0;
+    const crit_d = parseInt(document.getElementById("custom-supporter-crit_d").value) || 0;
+    const pene = parseInt(document.getElementById("custom-supporter-pene").value) || 0;
+
+    applyValues(atk, atk_p, atk_e, crit_p, crit_d, pene, 9);
+}

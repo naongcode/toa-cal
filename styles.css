@@ -31,7 +31,7 @@ header{
 
 .input-section, .character-stats {
     width: 100%; /* 최소 너비 설정 */
-    max-width: 500px; /* 최대 너비 설정 */
+    max-width: 700px; /* 최대 너비 설정 */
     margin:0 auto;
 }
 
@@ -65,7 +65,7 @@ header{
 /* 증감 버튼 확대 (크기 조정) */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
-    transform: scale(1.7);
+    transform: scale(1.5);
 }
 
 /* 보스 방어력, 보스 내성 스타일 */
@@ -102,24 +102,95 @@ input[type="number"]::-webkit-inner-spin-button {
 /* 캐릭터정보 */
 .character-stats {
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 5px;
     padding-top: 0;
     border-radius: 5px;
     background-color: #f9f9f9;
-    max-width: 270px;
+    max-width: 500px;
     text-align: center;
 }
 .character-stats h4 {
+    flex: 1 1 100%;
     text-align: center;
-    margin-bottom: 1px;
-
+    margin-bottom: 10px;
 }
-.character-stats p {
-    display: inline-block;
-    width: 30%;
-    text-align: center;
-    margin-bottom: 0;
 
+/* 캐릭터선택 */
+.character-card, .equipment-card, .artifact-card, .supporter-card{
+    max-width: 230px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 3px;
+    margin: 3px;
+    cursor: pointer;
+    text-align: center;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    width: 50%;
+}
+
+.character-card:hover, .equipment-card:hover, .artifact-card:hover, .supporter-card:hover{
+    background-color: #e8e8ff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.character-card.selected, .equipment-card.selected, .artifact-card.selected{
+    background-color: #cfe3ff;
+    border-color: #5c9cff;
+}
+
+.supporter-card.selected{
+    background-color: #cfe3ff;
+    border-color: #5c9cff;
+}
+
+/* 직접입력 */
+.manual-input {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-top: 20px; /* 위쪽에 간격 추가 */
+    width: 100%; /* 가로로 꽉 차게 설정 */
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px
+}
+
+.manual-input label {
+    margin: 0;
+}
+
+.manual-input input {
+    margin: 0;
+    padding: 3px;
+    font-size: 14px;
+    width: 50px;
+}
+.manual-input select{
+    margin: 0;
+    padding: 5px;
+    font-size: 14px;
+    width: 100px;
+}
+
+.manual-input button {
+    padding: 5px 5px;
+    font-size: 14px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: auto;
+}
+
+.manual-input button:hover {
+    background-color: #45a049;
 }
 
 /* 계산섹션 */
@@ -129,15 +200,15 @@ input[type="number"]::-webkit-inner-spin-button {
     align-items: center; /* 가로로 중앙 정렬 */
     text-align: center; /* 텍스트 중앙 정렬 */
     margin-top: 20px; /* 섹션 간 간격 */
+    margin-bottom: 20px;
 }
 
 .calculation-table input {
-    width: 80px;
+    width: 60px;
     height: 30px;
     font-size: 14px;
     text-align: center;
 }
-
 
 .result-section {
     text-align: center;
@@ -146,7 +217,7 @@ input[type="number"]::-webkit-inner-spin-button {
     align-items: center;
 }
 button {
-    margin-top: 20px;
+    margin-top: 0px;
     padding: 10px 20px;
     display: block;
     width: 100px;
@@ -165,8 +236,9 @@ button {
     right: 0;
     z-index: 1000; /* 다른 콘텐츠 위에 표시되도록 */
     padding: 10px; /* 광고 주변 여백 */
-    width: 300px;
-    height: 250px;
+    width: 250px;
+    height: 200px;
+    display: none;
 }
 
 
@@ -178,6 +250,9 @@ footer{
     .container {
         flex-direction: column; /* 세로로 배치 */
         align-items: center; /* 가운데 정렬 */
+    }
+    .character-stats {
+        grid-template-columns: 1fr; /* 한 줄에 1개의 칸 */
     }
 }
 

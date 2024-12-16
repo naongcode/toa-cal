@@ -8,14 +8,14 @@
 </head>
 <body>
     <header>
-        <h1>쿠키런 모험의탑</h1>
-        <h2>최적 잠재 계산기</h2>
+        <h1>쿠키런 모험의탑(TOA)</h1>
+        <h2>잠재력 계산기(hidden power calc)</h2>
     </header>
 
     <main class="container">
         <!-- 입력칸 -->
         <section class="input-section">
-            <h3>입력하세요~</h3>
+            <h3>choose (cookie - equip - artifact - supporter)</h3>
             <form id="calculator-form">
                 <table>
                     <thead>
@@ -126,33 +126,170 @@
             </div>
         </section>
         
-        <!-- 기본제공 정보 -->
+        <!-- 쿠키 정보 -->
         <section class="character-stats">
-            <h4>돌파옵션은 기본수치에 더해주기</h4>
-            <p> soda</p><p>705</p><p>atk30%</p>
-            <p> homil</p><p>717</p><p>atk30%</p>
-            <p> dark</p><p>735</p><p>crit_d37.5%</p>
-            <p> chili</p><p>699</p><p>crit_p22.5%</p>
-            <p> leze</p><p>692</p><p>crit_p22.5%</p>
-            <p> colab</p><p>724</p><p>atk30%</p>
-            <p> hala</p><p>702</p><p>atk30%</p>
-            <p> bazil</p><p>652</p><p>crit_p22.5%</p>
-            <p> sugle</p><p>663</p><p>crit_p22.5%</p>
+            <h4>cookie</h4>
+            <div class="character-card" data-atk="705" data-atk_p="30" data-atk_e="0" data-crit_p="15" data-crit_d="150" data-pene="0">
+                <strong>Soda</strong>  ATK: 705 ATK%: 30%
+            </div>
+            <div class="character-card" data-atk="717" data-atk_p="30" data-atk_e="0" data-crit_p="15" data-crit_d="150" data-pene="0">
+                <strong>homil</strong>  ATK: 717 ATK%: 30%
+            </div>
+            <div class="character-card" data-atk="735" data-atk_p="0" data-atk_e="0" data-crit_p="15" data-crit_d="187.5" data-pene="0">
+                <strong>dark</strong>  ATK: 735 CRIT_d: 37.5%
+            </div>
+            <div class="character-card" data-atk="724" data-atk_p="30" data-atk_e="0" data-crit_p="15" data-crit_d="150" data-pene="0">
+                <strong>colab</strong>  ATK: 724 ATK%: 30%
+            </div>
+            <div class="character-card" data-atk="702" data-atk_p="30" data-atk_e="0" data-crit_p="15" data-crit_d="150" data-pene="0">
+                <strong>hala</strong>  ATK: 702 ATK%: 30%
+            </div>
+            <div class="character-card" data-atk="699" data-atk_p="0" data-atk_e="0" data-crit_p="37.5" data-crit_d="150" data-pene="0">
+                <strong>chili</strong>  ATK: 699 CRIT%: 22.5%
+            </div>
+            <div class="character-card" data-atk="692" data-atk_p="0" data-atk_e="0" data-crit_p="37.5" data-crit_d="150" data-pene="0">
+                <strong>leze</strong>  ATK: 692 CRIT%: 22.5%
+            </div>
+            <div class="character-card" data-atk="652" data-atk_p="0" data-atk_e="0" data-crit_p="37.5" data-crit_d="150" data-pene="0">
+                <strong>bazil</strong>  ATK: 652 CRIT%: 22.5%
+            </div>
+            <div class="character-card" data-atk="663" data-atk_p="0" data-atk_e="0" data-crit_p="37.5" data-crit_d="150" data-pene="0">
+                <strong>sugar</strong>  ATK: 663 CRIT%: 22.5%
+            </div>
 
+                <!-- 직접 입력 섹션 (맨 뒤에 배치) -->
+            <div class="manual-input">
+                <label for="custom-atk">other | ATK:</label>
+                <input type="number" id="custom-atk" />
+
+                <label for="custom-option">option:</label>
+                <select id="custom-option">
+                    <option value="atk_p">ATK_P</option>
+                    <option value="atk_e">ATK_E</option>
+                    <option value="crit_p">CRIT_P</option>
+                    <option value="crit_d">CRIT DMG</option>
+                    <option value="pene">PENE</option>
+                </select>
+                
+                <input type="number" id="custom-value" />
+                <button onclick="applyCustomInput()">apply</button>
+            </div>
         </section>
 
+        <!-- 장비 정보 -->
+        <section class="character-stats">
+            <h4>equip</h4>
+            <div class="equipment-card" data-atk="0" data-atk_p="0" data-atk_e="31.2" data-crit_p="22.5" data-crit_d="37.5" data-pene="6">
+                <strong>오묘(memory shard)</strong>
+            </div>
+            <div class="equipment-card" data-atk="0" data-atk_p="0" data-atk_e="31.2" data-crit_p="22.5" data-crit_d="37.5" data-pene="0">
+                <strong>잊혀진영웅(forgotten hero)</strong>
+            </div>
+            <div class="equipment-card" data-atk="120" data-atk_p="45" data-atk_e="53.7" data-crit_p="0" data-crit_d="0" data-pene="0">
+                <strong>시간(TBD uniform)</strong>
+            </div>
+            <div class="equipment-card" data-atk="0" data-atk_p="20" data-atk_e="31.2" data-crit_p="22.5" data-crit_d="37.5" data-pene="0">
+                <strong>사냥꾼(suspicious hunter)</strong>
+            </div>
+            <div class="equipment-card" data-atk="120" data-atk_p="0" data-atk_e="53.7" data-crit_p="15" data-crit_d="37.5" data-pene="0">
+                <strong>방랑자(mysterious wanderer)</strong>
+            </div>
+            <div class="equipment-card" data-atk="0" data-atk_p="60" data-atk_e="31.2" data-crit_p="0" data-crit_d="0" data-pene="0">
+                <strong>해적(ghost captain)</strong>
+            </div>
+            <div class="equipment-card" data-atk="96" data-atk_p="30" data-atk_e="51.2" data-crit_p="0" data-crit_d="0" data-pene="15">
+                <strong>설탕(sugar feather)</strong>
+            </div>
+            <div class="equipment-card" data-atk="170" data-atk_p="0" data-atk_e="96.2" data-crit_p="0" data-crit_d="0" data-pene="0">
+                <strong>속성(element set)</strong>
+            </div>
+            
+                <!-- 직접 입력 섹션 (맨 뒤에 배치) -->
+            <div class="manual-input">
+                <input type="number" id="custom-equipment-atk" placeholder="atk">
+                <input type="number" id="custom-equipment-atk_p" placeholder="atk_p">
+                <input type="number" id="custom-equipment-atk_e" placeholder="atk_e">
+                <input type="number" id="custom-equipment-crit_p" placeholder="crit_p">
+                <input type="number" id="custom-equipment-crit_d" placeholder="crit_d">
+                <input type="number" id="custom-equipment-pene" placeholder="pene">                
+                
+                <button onclick="applyCustomEquipmentInput()">apply</button>
+            </div>
+        </section>
+
+        <!-- 아티펙트 정보 -->
+        <section class="character-stats">
+            <h4>artifact</h4>
+            <div class="artifact-card" data-atk="0" data-atk_p="0" data-atk_e="0" data-crit_p="0" data-crit_d="0" data-pene="0">
+                <strong>없음(none)</strong>
+            </div>
+            <div class="artifact-card" data-atk="0" data-atk_p="35" data-atk_e="0" data-crit_p="0" data-crit_d="0" data-pene="0">
+                <strong>atk_p 35%</strong>
+            </div>
+            <div class="artifact-card" data-atk="0" data-atk_p="0" data-atk_e="0" data-crit_p="25" data-crit_d="0" data-pene="0">
+                <strong>crit_p 25%</strong>
+            </div>
+        
+            
+            <!-- 직접 입력 섹션 (맨 뒤에 배치) -->
+            <div class="manual-input">
+                <input type="number" id="custom-artifact-atk" placeholder="atk">
+                <input type="number" id="custom-artifact-atk_p" placeholder="atk_p">
+                <input type="number" id="custom-artifact-atk_e" placeholder="atk_e">
+                <input type="number" id="custom-artifact-crit_p" placeholder="crit_p">
+                <input type="number" id="custom-artifact-crit_d" placeholder="crit_d">
+                <input type="number" id="custom-artifact-pene" placeholder="pene">                
+                
+                <button onclick="applyCustomArtifactInput()">apply</button>
+            </div>
+        
+        </section>
+
+        <!-- 서포터 정보 -->
+        <section class="character-stats">
+            <h4>supporter</h4>
+            <div class="supporter-card" data-atk="0" data-atk_p="0" data-atk_e="30" data-crit_p="0" data-crit_d="0" data-pene="0">
+                <strong>대마술사(eternal magician)<br>(atk_e:30)</strong>
+            </div>
+            <div class="supporter-card" data-atk="0" data-atk_p="0" data-atk_e="25.9" data-crit_p="0" data-crit_d="113.6" data-pene="0">
+                <strong>lemon<br>(atk_e:25.9 crit_d:113.6)</strong>
+            </div>
+            <div class="supporter-card" data-atk="0" data-atk_p="0" data-atk_e="0" data-crit_p="0" data-crit_d="30" data-pene="0">
+                <strong>black berry <br>(crit_d:30)</strong>
+            </div>
+            <div class="supporter-card" data-atk="0" data-atk_p="117" data-atk_e="0" data-crit_p="0" data-crit_d="0" data-pene="0">
+                <strong>rock star <br>(atk_p:117)</strong>
+            </div>
+            <div class="supporter-card" data-atk="0" data-atk_p="0" data-atk_e="30" data-crit_p="0" data-crit_d="0" data-pene="0">
+                <strong>pistachio <br>(atk_e:30)</strong>
+            </div>
+        
+            
+            <!-- 직접 입력 섹션 (맨 뒤에 배치) -->
+            <div class="manual-input">
+                <input type="number" id="custom-supporter-atk" placeholder="atk">
+                <input type="number" id="custom-supporter-atk_p" placeholder="atk_p">
+                <input type="number" id="custom-supporter-atk_e" placeholder="atk_e">
+                <input type="number" id="custom-supporter-crit_p" placeholder="crit_p">
+                <input type="number" id="custom-supporter-crit_d" placeholder="crit_d">
+                <input type="number" id="custom-supporter-pene" placeholder="pene">                
+                
+                <button onclick="applyCustomSupporterInput()">apply</button>
+            </div>
+        </section>
+        
     </main>
     <section class="calculate-section">
-        <h2>적용 수치</h2>
+        <h2>applied sum</h2>
         <table class="calculation-table">
             <thead>
                 <tr>
-                    <th>속공</th>
-                    <th>공증</th>
-                    <th>속피</th>
-                    <th>치확</th>
-                    <th>치피</th>
-                    <th>방관</th>
+                    <th>atk</th>
+                    <th>atk_p</th>
+                    <th>atk_e</th>
+                    <th>crit_p</th>
+                    <th>crit_d</th>
+                    <th>pene</th>
                 </tr>
             </thead>
             <tbody>
@@ -169,8 +306,8 @@
     </section>
     
     <section class="result-section">
-        <button onclick="calculateResults()">계산하기</button>
-        <h2>결과</h2>
+        <button onclick="calculateResults()">Calculate</button>
+        <h2>result</h2>
         <div id="result-list">
             
         </div>
@@ -181,7 +318,7 @@
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <ins class="adsbygoogle"
              style="display:block"
-             data-ad-client="ca-pub-9591677970805979"
+             data-ad-client="pub-9591677970805979"
              data-ad-slot="XXXXXXX"
              data-ad-format="auto"></ins>
         <script>
