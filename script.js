@@ -123,10 +123,10 @@ function calculateResults() {
         resultDiv.classList.add("result-item");
     
         resultDiv.innerHTML = `
-        <strong>Top ${idx + 1}</strong>
+        <strong>Top ${idx + 1}</strong> | <strong>값:</strong> ${Math.floor(result.value)} 
         <br>
-        <strong>값:</strong> ${Math.floor(result.value)} | <strong>잠재:</strong> 속공(${result.combination[0]})공증(${result.combination[1]})속피(${result.combination[2]})치확(${result.combination[3]})치피(${result.combination[4]})방관(${result.combination[5]})`;
-    
+        속공(${result.combination[0]}) 공증(${result.combination[1]}) 속피(${result.combination[2]}) 치확(${result.combination[3]}) 치피(${result.combination[4]}) 방관(${result.combination[5]}) <br><br>`;
+        
         resultList.appendChild(resultDiv);
     });
 }
