@@ -5,8 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>쿠모탑 잠재력 정상화</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 <body>
+    <div class="btn-container">
+        <a href="./index.html">
+            <button>
+                <span class="material-icons">calculate</span><br>hidden calculator
+            </button>
+        </a>
+        <a href="./jelly_location.html">
+            <button>
+                <span class="material-icons">description</span><br>jelly location
+            </button></a>
+    </div>
     <header>
         <h1>쿠키런 모험의탑 (TOA)</h1>
         <h2>잠재력 계산기(hidden power calc)</h2>
@@ -316,7 +329,7 @@
     </section>
     
     <section class="result-section">
-        <button onclick="calculateResults()">Calculate</button>
+        <button onclick="calculateResults()" class="cal-btn">Calculate</button>
         <h2>result</h2>
         <h3>atk, atk_p, atk_e, crit_p, crit_d, pene</h3><br>
         <div id="result-list">

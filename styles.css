@@ -1,6 +1,27 @@
+
 body {
     justify-content: center;
 }
+
+.btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-container a {
+    margin: 10px;
+}
+
+.btn-container a button{
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+}
+
 
 .container {
     display: flex;
@@ -245,7 +266,7 @@ input[type="number"]::-webkit-inner-spin-button {
     color:rgb(194, 37, 173);
 }
 
-button {
+.cal-btn {
     margin-top: 0px;
     padding: 10px 20px;
     display: block;
