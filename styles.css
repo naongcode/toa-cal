@@ -193,10 +193,12 @@ input[type="number"]::-webkit-inner-spin-button {
 .equipment-container div {
   display: flex;
   flex-grow: 1
+  justify-content: center;
 }
 
 .equipment-container2 {
     display: flex;
+    justify-content: center;
 }
 
 .equipment-container2 img {
