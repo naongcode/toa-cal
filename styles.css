@@ -192,8 +192,8 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .equipment-container div {
   display: flex;
-  flex-grow: 1
   justify-content: center;
+  flex-grow: 1;
 }
 
 .equipment-container2 {
