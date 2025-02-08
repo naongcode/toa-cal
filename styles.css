@@ -177,6 +177,19 @@ input[type="number"]::-webkit-inner-spin-button {
     border-color: #5c9cff;
 }
 
+/* 장비 이미지 */
+.equipment-card {
+    display:flex;
+    align-items: center;
+}
+
+.equipment-card img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
 .supporter-card.selected{
     background-color: #cfe3ff;
     border-color: #5c9cff;
