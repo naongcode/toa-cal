@@ -178,11 +178,11 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 /* 장비 이미지 */
-.equipment-container, .character-container, .artifact-container {
+.equipment-container, .character-container, .artifact-container, .supporter-container {
     display: flex;
 }
 
-.equipment-container img, .character-container img, .artifact-container img {
+.equipment-container img, .character-container img, .artifact-container img, .supporter-container img {
     width: 35px;
     height: 35px;
     object-fit: cover;
@@ -190,7 +190,7 @@ input[type="number"]::-webkit-inner-spin-button {
     margin-left: 10px;
 }
 
-.equipment-container div, .character-container div, .artifact-container div {
+.equipment-container div, .character-container div, .artifact-container div, .supporter-container div {
   display: flex;
   justify-content: center;
   flex-grow: 1;
