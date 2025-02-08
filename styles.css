@@ -181,6 +181,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .equipment-card {
     display:flex;
     align-items: center;
+    gap: 5px;
 }
 
 .equipment-card img {
@@ -188,6 +189,11 @@ input[type="number"]::-webkit-inner-spin-button {
     height: 50px;
     object-fit: cover;
     border-radius: 4px;
+}
+
+.equipment-card div {
+    display: flex;
+    flex-direction: column;
 }
 
 .supporter-card.selected{
