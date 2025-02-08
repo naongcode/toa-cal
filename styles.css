@@ -181,6 +181,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .equipment-card {
     display:flex;
     align-items: center;
+    justify-content: center;
     gap: 5px;
 }
 
