@@ -180,10 +180,26 @@ input[type="number"]::-webkit-inner-spin-button {
 /* 장비 이미지 */
 .equipment-container {
     display: flex;
-    justify-content: space-between;
 }
 
-.equipment-card img {
+.equipment-container img {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.equipment-container div {
+  display: flex;
+  flex-grow: 1
+}
+
+.equipment-container2 {
+    display: flex;
+}
+
+.equipment-container2 img {
     width: 35px;
     height: 35px;
     object-fit: cover;
