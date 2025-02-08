@@ -178,7 +178,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 /* 장비 이미지 */
-.equipment-card {
+.equipment-container {
     display: flex;
 }
 
@@ -188,7 +188,6 @@ input[type="number"]::-webkit-inner-spin-button {
     object-fit: cover;
     border-radius: 4px;
 }
-
 
 .supporter-card.selected{
     background-color: #cfe3ff;
