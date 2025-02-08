@@ -359,7 +359,7 @@ footer{
 
 @media (max-width: 483px) {
   .character-card, .equipment-card, .artifact-card, .supporter-card {
-    max-width: 195px;
+    max-width: 185px;
     margin: 0;
     padding: 0;
       
