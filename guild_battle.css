@@ -14,15 +14,17 @@ h2 {
     margin: 30px;
 }
 
-.season a {
-    margin-bottom: 10px;
+.season-info {
+    display:flex;
 }
 
 .season img {
     width:15px;
     height:15px;
-    display: flex;
-    align-items: center;
+}
+
+.season a {
+    margin-bottom: 10px;
 }
 
 .btn-container {
