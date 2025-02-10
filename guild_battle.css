@@ -8,14 +8,19 @@ h2 {
     justify-content: center;
 }
 
-.normal, .hard{
+.season{
     display: flex;
     flex-direction: column;
     margin: 30px;
 }
 
-.normal a, .hard a {
+.season a {
     margin-bottom: 10px;
+}
+
+.season img {
+    width:15px;
+    height:15px;
 }
 
 .btn-container {
