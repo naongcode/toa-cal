@@ -135,7 +135,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 
 /* 캐릭터정보 */
-.character-stats {
+.character-stats, .equipment-stats, .artifact-stats, .supporter-stats {
     border: 1px solid #ccc;
     padding: 5px;
     padding-top: 0;
@@ -144,7 +144,7 @@ input[type="number"]::-webkit-inner-spin-button {
     max-width: 500px;
     text-align: center;
 }
-.character-stats h4 {
+.character-stats h4, .equipment-stats h4, .artifact-stats h4, .supporter-stats h4 {
     flex: 1 1 100%;
     text-align: center;
     margin-bottom: 10px;
@@ -342,7 +342,7 @@ footer{
         width: 50px; /* 입력칸 더 줄이기 */
     }
 
-    .character-stats {
+    .character-stats, .equipment-stats, .artifact-stats, .supporter-stats {
         grid-template-columns: 1fr; /* 한 줄에 1개의 칸 */
     }
 
