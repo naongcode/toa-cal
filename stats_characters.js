@@ -59,7 +59,7 @@ const characters = [
   { name: 'strawberry mochi', img: './asset/icon/Face_Icon_Cookie1017.png', 
     atk: 1112, atk_p: 0, atk_e: 22.5, crit_p: 15, crit_d: 210, pene: 0, 
     description: 'ATK: 695(+60%) ATK_E:22.5% c_d:60%' },
-  { name: 'sonic water', img: './asset/icon/Icon_Emoji_L_Cookie1019.png', 
+  { name: 'sonic water', img: './asset/icon/T_Cookie1019_Sonicwater_Gacha_Board01.png', 
     atk: 673, atk_p: 0, atk_e: 22.5, crit_p: 15, crit_d: 150, pene: 0, 
     description: 'ATK: 673 ATK_E:22.5% '},
 ];
