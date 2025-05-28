@@ -1,7 +1,7 @@
-const characterStatsSection = document.querySelector('.artifact-stats');
-const manualInput = characterStatsSection.querySelector('.manual-input');
+const artifactStatsSection = document.querySelector('.artifact-stats');
+const artifactInput = artifactStatsSection.querySelector('.manual-input');
 
-const characters = [
+const artifacts = [
   { data: { atk: 0, atk_p: 0, atk_e: 0, crit_p: 0, crit_d: 0, pene: 0 },
     img: "./asset/arti/Thumbnail_Artifact_3002.png",
     description: "없음(none)"  },
@@ -59,7 +59,7 @@ const characters = [
 
 ];
 
-characters.forEach(c => {
+artifacts.forEach(c => {
   const card = document.createElement('div');
   card.className = 'artifact-card';
 
@@ -86,9 +86,9 @@ characters.forEach(c => {
   card.appendChild(container);
 
   // summaryBox보다 앞에 삽입
-  if(manualInput) {
-    characterStatsSection.insertBefore(card, manualInput);
+  if(artifactInput) {
+    artifactStatsSection.insertBefore(card, artifactInput);
   } else {
-    characterStatsSection.appendChild(card);
+    artifactStatsSection.appendChild(card);
   }
 });
