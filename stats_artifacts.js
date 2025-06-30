@@ -58,10 +58,10 @@ const artifacts = [
     description: "sonic water <br> a_p:35% <s>a_p 36%</s>"},
   { atk: 0, atk_p: 35, atk_e: 60, crit_p: 0, crit_d: 0, pene: 0 ,
     img: "./asset/arti/Icon_Buff_Artifact3106.png",
-    description: "sundae <br> a_p:35% <s>a_e 60%</s>"},
+    description: "sundae <br> a_p:35% a_e 60%"},
   { atk: 0, atk_p: 35, atk_e: 0, crit_p: 0, crit_d: 0, pene: 0 ,
     img: "./asset/arti/Icon_Buff_Artifact3107.png",
-    description: "banana roti <br> a_p:35% <s> ? </s>"},    
+    description: "banana roti <br> a_p:35%  ? "},    
 ];
 
 artifacts.forEach(c => {
