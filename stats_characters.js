@@ -62,6 +62,12 @@ const characters = [
   { name: 'sonic water', img: './asset/icon/T_Cookie1019_Sonicwater_Gacha_Board01.png', 
     atk: 673, atk_p: 0, atk_e: 22.5, crit_p: 15, crit_d: 150, pene: 0, 
     description: 'ATK: 673 ATK_E:22.5% '},
+  { name: 'sundae', img: './asset/icon/Face_Icon_Cookie1020.png', 
+    atk: 790, atk_p: 0, atk_e: 0, crit_p: 15, crit_d: 150, pene: 0, 
+    description: 'ATK: ? ATK_E: ? '},    
+  { name: 'banana roti', img: './asset/icon/Face_Icon_Cookie1021.png', 
+    atk: 673, atk_p: 0, atk_e: 0, crit_p: 15, crit_d: 150, pene: 0, 
+    description: 'ATK: ? ATK_E: ? '},        
 ];
 
 characters.forEach(c => {
