@@ -66,7 +66,7 @@ const characters = [
     atk: 655, atk_p: 30, atk_e: 0, crit_p: 15, crit_d: 150, pene: 0, 
     description: 'ATK: 655 ATK_P: 30% '},    
   { name: 'banana roti', img: './asset/icon/Face_Icon_Cookie1021.png', 
-    atk: 604, atk_p: 0, atk_e: 0, crit_p: 15, crit_d: 150, pene: 0, 
+    atk: 604, atk_p: 30, atk_e: 0, crit_p: 15, crit_d: 150, pene: 0, 
     description: 'ATK: 604 ATK_P: 30% '},        
 ];
 
