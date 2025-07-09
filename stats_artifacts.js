@@ -61,7 +61,7 @@ const artifacts = [
     description: "sundae <br> a_p:35% a_e 60%"},
   { atk: 0, atk_p: 0, atk_e: 0, crit_p: 25, crit_d: 0, pene: 0 ,
     img: "./asset/arti/Icon_Buff_Artifact3107.png",
-    description: "banana roti <br> c_p:25% <s>a_p ?%</s> ? "},    
+    description: "banana roti <br> c_p:25% <s>a_p 28%</s>  "},    
 ];
 
 artifacts.forEach(c => {

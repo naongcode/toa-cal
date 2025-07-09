@@ -64,10 +64,10 @@ const characters = [
     description: 'ATK: 673 ATK_E:22.5% '},
   { name: 'sundae', img: './asset/icon/Face_Icon_Cookie1020.png', 
     atk: 655, atk_p: 30, atk_e: 0, crit_p: 15, crit_d: 150, pene: 0, 
-    description: 'ATK: 655? ATK_P: 30%? '},    
+    description: 'ATK: 655 ATK_P: 30% '},    
   { name: 'banana roti', img: './asset/icon/Face_Icon_Cookie1021.png', 
-    atk: 673, atk_p: 0, atk_e: 0, crit_p: 15, crit_d: 150, pene: 0, 
-    description: 'ATK: ? ATK_E: ? '},        
+    atk: 604, atk_p: 0, atk_e: 0, crit_p: 15, crit_d: 150, pene: 0, 
+    description: 'ATK: 604 ATK_P: 30% '},        
 ];
 
 characters.forEach(c => {
