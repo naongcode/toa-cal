@@ -57,13 +57,13 @@ const artifacts = [
     img: "./asset/arti/Thumbnail_Artifact_3205.png",
     description: "sonic water <br> a_p:35% <s>a_p 36%</s>"},
   { atk: 0, atk_p: 35, atk_e: 60, crit_p: 0, crit_d: 0, pene: 0 ,
-    img: "./asset/arti/Icon_Buff_Artifact3106.png",
+    img: "./asset/arti/Thumbnail_Artifact_3106.png",
     description: "sundae <br> a_p:35% a_e 60%"},
   { atk: 0, atk_p: 0, atk_e: 0, crit_p: 25, crit_d: 0, pene: 0 ,
-    img: "./asset/arti/Icon_Buff_Artifact3107.png",
+    img: "./asset/arti/Thumbnail_Artifact_3107.png",
     description: "banana roti <br> c_p:25% <s>a_p 28%</s>  "},
   { atk: 0, atk_p: 35, atk_e: 0, crit_p: 0, crit_d: 0, pene: 0 ,
-    img: "./asset/arti/Thumbnail_Artifact_3002.png",
+    img: "./asset/arti/Thumbnail_Artifact_3108.png",
     description: "butter milk <br> a_p:35% <s>a_p 40%</s>  "},    
 ];
 
