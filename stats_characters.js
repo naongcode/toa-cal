@@ -69,8 +69,8 @@ const characters = [
     atk: 604, atk_p: 30, atk_e: 0, crit_p: 15, crit_d: 150, pene: 0, 
     description: 'ATK: 604 ATK_P: 30% '},
   { name: 'butter milk', img: './asset/icon/Face_Icon_Cookie1022.png', 
-    atk: 608, atk_p: 0, atk_e: 0, crit_p: 37.5, crit_d: 150, pene: 0, 
-    description: 'ATK: 604 crit_p: 22.5% '},        
+    atk: 656, atk_p: 0, atk_e: 0, crit_p: 37.5, crit_d: 150, pene: 0, 
+    description: 'ATK: 656 crit_p: 22.5% '},        
 ];
 
 characters.forEach(c => {
