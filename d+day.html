@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>쿠키 정보 표</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f8f8f8;
+    }
+
+    .btn-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn-container a {
+        margin: 10px;
+    }
+
+    .btn-container a button{
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    table {
+      width: 100%;
+      max-width: 500px;    /* ✅ 최대 너비 제한 */
+      margin: 0 auto;      /* ✅ 가운데 정렬 */
+      border-collapse: collapse;
+      background-color: white;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 6px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    caption {
+      margin-bottom: 10px;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="btn-container">
+    <a href="./index.html">
+      <button>
+        <span class="material-icons">home</span><br />home
+      </button>
+    </a>
+  </div>
+
+  <table>
+  <br>
+    <thead>
+      <tr>
+        <th>쿠키</th>
+        <th>속성</th>
+        <th>역할</th>
+        <th>출시일</th>
+        <th>D + Day</th>
+      </tr>
+    </thead>
+    <tbody id="cookie-table-body">
+      <!-- 여기에 JS가 tr을 삽입할 예정 -->
+    </tbody>
+  </table>
+
+</body>
+
+<script>
+
+  // 각 행의 출시일 읽어서 D+Day 자동 채움
+  document.addEventListener('DOMContentLoaded', () => {
+    const rows = document.querySelectorAll("tbody tr");
+
+    rows.forEach(row => {
+      const releaseDateCell = row.querySelector(".release-date");
+      const dDayCell = row.querySelector(".d-day");
+
+      if (releaseDateCell && dDayCell) {
+        const releaseDateStr = releaseDateCell.textContent.trim();
+        dDayCell.textContent = calculateDDay(releaseDateStr);
+      }
+    });
+  });
+
+  const attributeColors = {
+    "대지": "#A0522D",  // 갈색
+    "물": "#1E90FF",    // 파랑
+    "불": "#FF4500",    // 주황/빨강
+    "바람": "#3CB371",   // 연녹색 (또는 청록)
+    "어둠": "#4B0082",  // 남보라
+    "빛": "#FFD700"
+  };
+
+  const cookieData = [
+    { name: "알사탕", attribute: "대지", role: "스커", release: "2024-09-04" },
+    { name: "드라이스톤", attribute: "대지", role: "딜러", release: "2025-02-05" },
+    { name: "허니베어", attribute: "대지", role: "서포터", release: "2025-02-19" },
+
+    { name: "락스타", attribute: "물", role: "서포터", release: "2024-06-26" },
+    { name: "아이스민트", attribute: "물", role: "딜러", release: "2024-12-31" },
+    { name: "소닉워터", attribute: "물", role: "스커", release: "2025-05-28" },
+    { name: "아이리스", attribute: "물", role: "딜러", release: "" },
+
+    { name: "플랜틴", attribute: "바람", role: "스커", release: "2024-06-26" },
+    { name: "바질페스토", attribute: "바람", role: "딜러", release: "2024-10-30" },
+    { name: "그린벨", attribute: "바람", role: "서포터", release: "2025-03-31" },
+    
+    { name: "마라", attribute: "불", role: "스커", release: "2024-07-24" },
+    { name: "복숭아", attribute: "불", role: "서포터", release: "2024-12-18" },
+    { name: "딸기찹쌀떡", attribute: "불", role: "딜러", release: "2025-04-30" },
+    
+    { name: "레몬", attribute: "빛", role: "서포터", release: "2024-10-16" },
+    { name: "바나나로티", attribute: "빛", role: "스커", release: "2025-07-09" },
+    { name: "버터밀크", attribute: "빛", role: "딜러", release: "2025-07-30" },
+    
+    { name: "블랙베리", attribute: "어둠", role: "서포터", release: "2024-08-21" },
+    { name: "마블베리", attribute: "어둠", role: "스커", release: "2025-03-05" },
+    { name: "선데", attribute: "어둠", role: "딜러", release: "2025-06-25" },
+  ];
+
+  // ② D+Day 계산 함수
+  function calculateDDay(releaseDateStr) {
+    if (!releaseDateStr) return "미정";
+    const releaseDate = new Date(releaseDateStr);
+    if (isNaN(releaseDate)) return "미정";
+    const today = new Date();
+    const diffTime = today - releaseDate;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays >= 0 ? `+${diffDays}` : `D${diffDays}`;
+  }
+
+  // ③ 테이블 렌더링
+function renderTable() {
+  const tbody = document.getElementById("cookie-table-body");
+  cookieData.forEach(cookie => {
+    const tr = document.createElement("tr");
+    const bgColor = attributeColors[cookie.attribute] || "#eee";
+
+    tr.innerHTML = `
+      <td>${cookie.name}</td>
+      <td style="background-color: ${bgColor}; color: white;">${cookie.attribute}</td>
+      <td>${cookie.role}</td>
+      <td>${cookie.release || "미정"}</td>
+      <td>${calculateDDay(cookie.release)}</td>
+    `;
+
+    tbody.appendChild(tr);
+  });
+}
+
+  document.addEventListener('DOMContentLoaded', renderTable);
+
+</script>
+
+</html>

@@ -5,21 +5,32 @@ body {
 
 .btn-container {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;         /* 줄바꿈 허용 */
     justify-content: center;
+    margin: 0 auto; 
+    max-width: 500px;        /* 전체 컨테이너 너비 제한 */
+    gap: 10px;               /* 버튼 간 간격 */
 }
 
 .btn-container a {
-    margin: 10px;
+    text-decoration: none;  /* 링크 밑줄 제거 */
 }
 
-.btn-container a button{
+.btn-container a button {
+    width: 200px;
+    height: 40px;
     font-size: 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     background-color: #4CAF50;
     color: white;
+    
+    display: flex;
+    flex-direction: row;       /* 아이콘 ↔ 텍스트 수평 배치 */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;                 /* 아이콘과 텍스트 사이 여백 */
 }
 
 
