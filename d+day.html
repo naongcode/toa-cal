@@ -28,6 +28,7 @@
         cursor: pointer;
         background-color: #4CAF50;
         color: white;
+        margin-bottom: 20px;
     }
 
     table {
@@ -58,6 +59,27 @@
       font-weight: bold;
       font-size: 1.2em;
     }
+
+  .tab-buttons {
+    text-align: center;
+    margin-bottom: 1px;
+  }
+
+  .tab-btn {
+    padding: 10px 20px;
+    margin: 0 3px;
+    border: none;
+    background-color: #ddd;
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .tab-btn.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+
   </style>
 </head>
 <body>
@@ -68,6 +90,11 @@
         <span class="material-icons">home</span><br />home
       </button>
     </a>
+  </div>
+
+  <div class="tab-buttons">
+    <button class="tab-btn active" data-tab="active">사용 중</button>
+    <button class="tab-btn" data-tab="archived">보관됨</button>
   </div>
 
   <table>
@@ -81,9 +108,12 @@
         <th>D + Day</th>
       </tr>
     </thead>
-    <tbody id="cookie-table-body">
-      <!-- 여기에 JS가 tr을 삽입할 예정 -->
-    </tbody>
+      <tbody id="active-tab" class="tab-content">
+        <!-- 사용 중 쿠키 삽입 -->
+      </tbody>
+      <tbody id="archived-tab" class="tab-content" style="display: none;">
+        <!-- 보관 쿠키 삽입 -->
+      </tbody>
   </table>
 
 </body>
@@ -141,6 +171,17 @@
     { name: "선데", attribute: "어둠", role: "딜러", release: "2025-06-25" },
   ];
 
+  const archivedCookieData = [
+    { name: "다크초코", attribute: "어둠", role: "딜러", release: "2024-06-26" },
+    { name: "콜라비", attribute: "어둠", role: "딜러", release: "2024-08-07" },
+    { name: "크림소다", attribute: "물", role: "딜러", release: "2024-06-26" },
+    { name: "칠리", attribute: "불", role: "딜러", release: "2024-06-26" },
+    { name: "할라피뇨", attribute: "불", role: "딜러", release: "2024-10-02" },
+    { name: "마법사", attribute: "빛", role: "스커", release: "2024-06-26" },
+    { name: "레몬제스트", attribute: "빛", role: "딜러", release: "2024-07-17" },
+    { name: "슈가글로브", attribute: "빛", role: "딜러", release: "2024-12-04" },
+  ];
+
   // ② D+Day 계산 함수
   function calculateDDay(releaseDateStr) {
     if (!releaseDateStr) return "미정";
@@ -153,9 +194,11 @@
   }
 
   // ③ 테이블 렌더링
-function renderTable() {
-  const tbody = document.getElementById("cookie-table-body");
-  cookieData.forEach(cookie => {
+function renderTable(data, tabId) {
+  const tbody = document.getElementById(tabId);
+  tbody.innerHTML = ""; // 기존 내용 초기화
+
+  data.forEach(cookie => {
     const tr = document.createElement("tr");
     const bgColor = attributeColors[cookie.attribute] || "#eee";
 
@@ -163,15 +206,34 @@ function renderTable() {
       <td>${cookie.name}</td>
       <td style="background-color: ${bgColor}; color: white;">${cookie.attribute}</td>
       <td>${cookie.role}</td>
-      <td>${cookie.release || "미정"}</td>
-      <td>${calculateDDay(cookie.release)}</td>
+      <td class="release-date">${cookie.release || "미정"}</td>
+      <td class="d-day">${calculateDDay(cookie.release)}</td>
     `;
 
     tbody.appendChild(tr);
   });
 }
 
-  document.addEventListener('DOMContentLoaded', renderTable);
+  document.addEventListener('DOMContentLoaded', () => {
+    renderTable(cookieData, "active-tab");
+    renderTable(archivedCookieData, "archived-tab");
+
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const tab = btn.dataset.tab;
+
+        tabButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        tabContents.forEach(content => {
+          content.style.display = content.id === `${tab}-tab` ? "table-row-group" : "none";
+        });
+      });
+    });
+  });
 
 </script>
 
