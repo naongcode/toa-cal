@@ -70,7 +70,13 @@ const characters = [
     description: 'ATK: 604 ATK_P: 30% '},
   { name: 'butter milk', img: './asset/icon/Face_Icon_Cookie1022.png', 
     atk: 656, atk_p: 0, atk_e: 0, crit_p: 37.5, crit_d: 150, pene: 0, 
-    description: 'ATK: 656 crit_p: 22.5% '},        
+    description: 'ATK: 656 crit_p: 22.5% '},
+  { name: 'Iris', img: './asset/icon/Face_Icon_Cookie1023.png', 
+    atk: 645, atk_p: 0, atk_e: 30, crit_p: 47.5, crit_d: 150, pene: 0, 
+    description: 'ATK: 645? crit_p: 32.5% atk_e: 30% '},
+  { name: '이슬', img: './asset/icon/Face_Icon_Cookie1024.png', 
+    atk: 656, atk_p: 0, atk_e: 0, crit_p: 15, crit_d: 150, pene: 0, 
+    description: 'ATK: ? crit_p: ?% '},        
 ];
 
 characters.forEach(c => {
