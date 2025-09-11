@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>개노답 삼형제 생성기</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column; 
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #eee;
+    }
+    .container {
+      position: relative;
+      display: inline-block;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .speech {
+      position: absolute;
+      width: 120px;
+      height: 50px;
+      background: rgba(255, 255, 255, 1);
+      border: none;
+      font-size: 12px;
+      padding: 4px;
+      resize: none;
+      overflow: hidden;
+    }
+    /* 말풍선 위치 */
+    #s1 { top: 10px; left: 120px;  width: 39px; height: 106px; }
+    #s2 { top: 142px; left: 122px; width: 39px; height: 60px; }
+    #s3 { top: 280px; left: 8px; width: 33px; height: 45px; }
+    #s4 { top: 282px; left: 90px; width: 48px; height: 65px; }
+    #s5 { top: 282px; left: 160px; width: 34px; height: 59px; }
+    #s6 { top: 282px; left: 240px; width: 48px; height: 52px; }
+    #s7 { top: 282px; left: 310px; width: 35px; height: 52px; }
+    #s8 { top: 282px; left: 400px; width: 39px; height: 65px; }
+
+    button {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+    <div class="btn-container">
+        <a href="../index.html">
+            <button>
+                <span class="material-icons">home</span><br>home
+            </button>
+        </a>
+    </div>
+
+  <div class="container" id="comic-container">
+    <img src="triplets.webp" id="comic" alt="개노답 삼형제" />
+    <textarea id="s1" class="speech" placeholder="텍스트 입력"></textarea>
+    <textarea id="s2" class="speech" placeholder="텍스트 입력"></textarea>
+    <textarea id="s3" class="speech" placeholder="텍스트 입력"></textarea>
+    <textarea id="s4" class="speech" placeholder="텍스트 입력"></textarea>
+    <textarea id="s5" class="speech" placeholder="텍스트 입력"></textarea>
+    <textarea id="s6" class="speech" placeholder="텍스트 입력"></textarea>
+    <textarea id="s7" class="speech" placeholder="텍스트 입력"></textarea>
+    <textarea id="s8" class="speech" placeholder="텍스트 입력"></textarea>
+
+  </div>
+  <div style="text-align: center; margin-top: 20px;">
+    <button id="saveBtn">JPG로 저장</button>
+  </div>
+
+
+    <!-- html2canvas 불러오기 -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script>
+    document.getElementById("saveBtn").addEventListener("click", function() {
+      const container = document.getElementById("comic-container");
+
+      html2canvas(container).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "개노답삼형제.jpg";
+        link.href = canvas.toDataURL("image/jpeg");
+        link.click();
+      });
+    });
+  </script>
+
+</body>
+</html>
