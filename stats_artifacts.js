@@ -67,7 +67,7 @@ const artifacts = [
     description: "butter milk <br> a_p:35% <s>a_p 40%</s>  "},
   { atk: 0, atk_p: 0, atk_e: 50, crit_p: 0, crit_d: 40, pene: 0 ,
     img: "./asset/arti/Thumbnail_Artifact_3206.png",
-    description: "Iris : c_d 35% <br> a_e 50% <s>a_p 40%</s>  "},
+    description: "Iris : c_d 40% <br> a_e 50% <s>a_p 40%</s>  "},
   { atk: 0, atk_p: 0, atk_e: 30, crit_p: 0, crit_d: 60, pene: 0 ,
     img: "./asset/arti/Thumbnail_Artifact_3508.png",
     description: "dew <br> c_d 60% a_e 30%  "},    
