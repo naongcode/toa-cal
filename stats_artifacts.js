@@ -15,7 +15,7 @@ const artifacts = [
     img: "./asset/arti/Thumbnail_Artifact_3401.png",
     description: "homil: a_p 35% <br> <s>a_p 41.6%</s> a_e 41.6%"  },
   { atk: 0, atk_p: 101, atk_e: 0, crit_p: 0, crit_d: 0, pene: 0 ,
-    img: "./asset/arti/Thumbnail_Artifact_3401.png",
+    img: "./asset/arti/Thumbnail_Artifact_3402.png",
     description: "leze: a_p 35% <br> a_p 66% "  },
   {  atk: 0, atk_p: 35, atk_e: 130, crit_p: 0, crit_d: 0, pene: 0 ,
     img: "./asset/arti/Thumbnail_Artifact_3403.png",
@@ -68,9 +68,9 @@ const artifacts = [
   { atk: 0, atk_p: 0, atk_e: 50, crit_p: 0, crit_d: 40, pene: 0 ,
     img: "./asset/arti/Thumbnail_Artifact_3206.png",
     description: "Iris : c_d 35% <br> a_e 50% <s>a_p 40%</s>  "},
-  { atk: 0, atk_p: 0, atk_e: 0, crit_p: 0, crit_d: 0, pene: 0 ,
+  { atk: 0, atk_p: 0, atk_e: 30, crit_p: 0, crit_d: 60, pene: 0 ,
     img: "./asset/arti/Thumbnail_Artifact_3508.png",
-    description: "e sul <br> c_p:? <s>a_p ?</s>  "},    
+    description: "dew <br> c_d 60% a_e 30%  "},    
 ];
 
 artifacts.forEach(c => {
