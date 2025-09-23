@@ -73,10 +73,10 @@ const characters = [
     description: 'ATK: 656 crit_p: 22.5% '},
   { name: 'Iris', img: './asset/icon/Face_Icon_Cookie1023.png', 
     atk: 645, atk_p: 0, atk_e: 30, crit_p: 47.5, crit_d: 150, pene: 0, 
-    description: 'ATK: 64? <br> crit_p: 32.5% atk_e: 30% '},
+    description: 'ATK: 645 <br> crit_p: 32.5% atk_e: 30% '},
   { name: '이슬', img: './asset/icon/Face_Icon_Cookie1024.png', 
     atk: 577, atk_p: 0, atk_e: 0, crit_p: 75, crit_d: 150, pene: 0, 
-    description: 'ATK: 577, c_p:60%'},        
+    description: 'ATK: 577, c_p:+60%'},        
 ];
 
 characters.forEach(c => {
